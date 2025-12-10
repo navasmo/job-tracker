@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for next-themes */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --blue: #1f95ea;
+  --blue-light: #4fb3ff;
+  --blue-dark: #0d7fd4;
+  --green: #10b981;
+  --yellow: #febe26;
+  --red: #ef4444;
+  --purple: #7C3AED;
+  --orange: #ff7a00;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-blue-dark: var(--blue-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Status badge colors */
+.status-applied {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-interviewing {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-offer {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-saved {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.status-withdrawn {
+  background-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.dark .status-applied {
+  background-color: #1e3a5f;
+  color: #93c5fd;
+}
+
+.dark .status-interviewing {
+  background-color: #78350f;
+  color: #fde68a;
+}
+
+.dark .status-offer {
+  background-color: #064e3b;
+  color: #6ee7b7;
+}
+
+.dark .status-rejected {
+  background-color: #7f1d1d;
+  color: #fca5a5;
+}
+
+.dark .status-saved {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.dark .status-withdrawn {
+  background-color: #4b5563;
+  color: #9ca3af;
+}
+
+/* Drag and drop styles */
+.dragging {
+  opacity: 0.5;
+  transform: scale(1.02);
+}
+
+.drop-target {
+  background-color: var(--blue-light);
+  opacity: 0.3;
+}
+
+/* Card hover effect */
+.job-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .job-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
