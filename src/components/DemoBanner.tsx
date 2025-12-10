@@ -7,8 +7,8 @@ export function DemoBadge() {
   if (!isDemoMode) return null;
 
   return (
-    <span className="px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full">
-      Demo
+    <span className="text-xs font-medium text-[#1f95ea]">
+      [Demo]
     </span>
   );
 }

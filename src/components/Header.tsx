@@ -152,11 +152,11 @@ export default function Header({
           {/* Logo - Compact on mobile */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             <span className="font-[family-name:var(--font-cairo)] text-[#1f95ea] text-xl sm:text-2xl font-bold">nmo.</span>
-            <DemoBadge />
             <div className="hidden sm:block h-5 w-px bg-gray-300 dark:bg-gray-600" />
             <span className="hidden sm:block font-[family-name:var(--font-cairo)] text-lg font-bold text-gray-900 dark:text-white">
               Job Tracker
             </span>
+            <DemoBadge />
           </div>
 
           {/* Search and Date Filter */}
