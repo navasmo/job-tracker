@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { Sun, Moon, Plus, LayoutGrid, List, Search, Calendar, ChevronDown, X, LogOut, Loader2, SlidersHorizontal } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { DateFilterType } from "./Dashboard";
+import { DemoBadge } from "./DemoBanner";
 
 const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
 
@@ -151,6 +152,7 @@ export default function Header({
           {/* Logo - Compact on mobile */}
           <div className="flex items-center gap-1.5 sm:gap-2">
             <span className="font-[family-name:var(--font-cairo)] text-[#1f95ea] text-xl sm:text-2xl font-bold">nmo.</span>
+            <DemoBadge />
             <div className="hidden sm:block h-5 w-px bg-gray-300 dark:bg-gray-600" />
             <span className="hidden sm:block font-[family-name:var(--font-cairo)] text-lg font-bold text-gray-900 dark:text-white">
               Job Tracker

@@ -1,21 +1,19 @@
 "use client";
 
 import { isDemoMode } from "@/lib/demo";
-import { Info } from "lucide-react";
 
-export default function DemoBanner() {
+// Subtle demo indicator badge for the header
+export function DemoBadge() {
   if (!isDemoMode) return null;
 
   return (
-    <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-800">
-      <div className="w-full px-3 sm:px-6 lg:px-8 py-2">
-        <div className="flex items-center justify-center gap-2 text-amber-800 dark:text-amber-200">
-          <Info className="w-4 h-4 flex-shrink-0" />
-          <p className="text-xs sm:text-sm text-center">
-            <span className="font-medium">Demo Mode:</span> Feel free to add jobs and drag cards around – your changes are session-only and won't be saved.
-          </p>
-        </div>
-      </div>
-    </div>
+    <span className="px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full">
+      Demo
+    </span>
   );
+}
+
+// Keep the old export for backwards compatibility but return null
+export default function DemoBanner() {
+  return null;
 }
