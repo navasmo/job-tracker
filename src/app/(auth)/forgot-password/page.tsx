@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Mail, Loader2, ArrowLeft, CheckCircle } from "lucide-react";
 
-const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
+const isDemo =
+  process.env.NEXT_PUBLIC_DEMO_MODE === "true" ||
+  !process.env.NEXT_PUBLIC_STACK_PROJECT_ID;
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");

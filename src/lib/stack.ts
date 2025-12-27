@@ -1,13 +1,23 @@
 import "server-only";
-import { StackServerApp } from "@stackframe/stack";
+import type { StackServerApp as StackServerAppType } from "@stackframe/stack";
 
-export const stackServerApp = new StackServerApp({
-  tokenStore: "nextjs-cookie",
-  urls: {
-    home: "/",
-    signIn: "/login",
-    signUp: "/signup",
-    afterSignIn: "/",
-    afterSignUp: "/",
-  },
-});
+const projectId = process.env.NEXT_PUBLIC_STACK_PROJECT_ID;
+
+let stackServerAppInstance: StackServerAppType | null = null;
+
+if (projectId) {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { StackServerApp } = require("@stackframe/stack");
+  stackServerAppInstance = new StackServerApp({
+    tokenStore: "nextjs-cookie",
+    urls: {
+      home: "/",
+      signIn: "/login",
+      signUp: "/signup",
+      afterSignIn: "/",
+      afterSignUp: "/",
+    },
+  });
+}
+
+export const stackServerApp = stackServerAppInstance as StackServerAppType;
