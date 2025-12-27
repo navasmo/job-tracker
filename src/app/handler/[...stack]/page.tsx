@@ -1,4 +1,3 @@
-import { StackHandler } from "@stackframe/stack";
 import { redirect } from "next/navigation";
 
 export default async function Handler(props: { params: Promise<{ stack: string[] }> }) {
@@ -9,6 +8,7 @@ export default async function Handler(props: { params: Promise<{ stack: string[]
 
   // Dynamically import Stack Auth only when not in demo mode
   const { stackServerApp } = await import("@/lib/stack");
+  const { StackHandler } = await import("@stackframe/stack");
 
   return <StackHandler fullPage app={stackServerApp} params={props.params} />;
 }

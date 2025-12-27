@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Mail, Lock, Eye, EyeOff, Loader2 } from "lucide-react";
 
-const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
+const isDemo =
+  process.env.NEXT_PUBLIC_DEMO_MODE === "true" ||
+  !process.env.NEXT_PUBLIC_STACK_PROJECT_ID;
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
