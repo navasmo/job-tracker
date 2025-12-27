@@ -3,7 +3,9 @@
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "react-hot-toast";
 
-const isDemo = process.env.NEXT_PUBLIC_DEMO_MODE === "true";
+const isDemo =
+  process.env.NEXT_PUBLIC_DEMO_MODE === "true" ||
+  !process.env.NEXT_PUBLIC_STACK_PROJECT_ID;
 
 interface ProvidersProps {
   children: React.ReactNode;
